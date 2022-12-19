@@ -1,11 +1,10 @@
 package com.example.packagereceivesystem.repository;
 
-import com.example.packagereceivesystem.model.PersonMapper;
+import com.example.packagereceivesystem.model.StudentMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.example.packagereceivesystem.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.stereotype.Component;
@@ -13,7 +12,6 @@ import org.springframework.stereotype.Component;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Map;
 
 @Component
 public class StudentDao {
@@ -29,7 +27,7 @@ public class StudentDao {
     private JdbcTemplate jdbcTemplate;
 
     public List<Student> findAllStudent(){
-        return jdbcTemplate.query(GET_ALL_STUDENT_COMMAND, new PersonMapper());
+        return jdbcTemplate.query(GET_ALL_STUDENT_COMMAND, new StudentMapper());
     }
 
     public void saveStudent(Student student) {
